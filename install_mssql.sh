@@ -35,6 +35,25 @@ else
 fi
 #if not installed , install it 
 
+dnf list installed git
+
+if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
+then
+    echo " pakage not installed in this system, we are processding to install "
+    dnf install git -y
+    if [ $? -eq 0 ];
+    then
+        echo " package installed successfully"
+    else 
+        echo " package installation failed , please try after sometime "
+    
+    fi
+
+else 
+    echo " Package alredy installed "  #it is alredy installed
+    
+fi
+
 
 
 
