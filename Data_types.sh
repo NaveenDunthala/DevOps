@@ -3,7 +3,7 @@
 #adding two numbers
 
 NUM1=$1
-num2=$2
+NUM2=$2
 
 SUM=$(($NUM1+$NUM2))
 
