@@ -6,7 +6,14 @@
 
 USERID=$(id -u )
 
-echo "user id is : $USERID"
+if [ $USERID eq 0];
+then
+    echo "user is root user"
+else 
+    echo "user is not a root user"
+fi
+
+#echo "user id is : $USERID"
 
 
 #if root access , processd with the script
