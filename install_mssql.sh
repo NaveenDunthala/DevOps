@@ -12,7 +12,7 @@ then
     echo "user is root user, we are prosiding to install" #if root access , processd with the script
 else 
     echo "user is not a root user, please try with root user"
-    exit 1
+    
 fi
 
 dnf list installed  mysql 
@@ -21,7 +21,6 @@ if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
 then
     echo " pakage not installed in this system, we are processding to install "
     dnf install mysql -y
-
     if [ $? -eq 0 ];
     then
         echo " package installed successfully"
@@ -32,7 +31,7 @@ then
 
 else 
     echo " Package alredy installed "  #it is alredy installed
-    exit 1
+    
 fi
 #if not installed , install it 
 
