@@ -8,4 +8,4 @@ echo "second liked game is ${liked_Games[3]}"
 
 echo "last to like game is ${liked_Games[2]}"
 
-echo "liked games are  $liked_games"
+echo "liked games are  $liked_Games"
