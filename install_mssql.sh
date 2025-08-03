@@ -9,24 +9,33 @@ USERID=$(id -u )
 if [ "$USERID" -eq 0 ];
 
 then
-    echo "user is root user, we are prosiding to install"
+    echo "user is root user, we are prosiding to install" #if root access , processd with the script
 else 
     echo "user is not a root user, please try with root user"
     exit 1
 fi
 
-dnf install mysql -y
+dnf installed mysql 
 
-#echo "user id is : $USERID"
+if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
+then
+    echo " pakage not installed in this system, we are processding to install "
+else 
+    echo " Package alredy installed "  #it is alredy installed
+    exit 1
+fi
+#if not installed , install it 
 
 
-#if root access , processd with the script
+
+
+
 
 #other wise throgh the error
 
-#check alredy installed or not , if installed tell the user
 
-#it is alredy installed
+
+
 
 #if not installed , install it 
 
