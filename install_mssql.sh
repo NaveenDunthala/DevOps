@@ -1,3 +1,3 @@
 #!/bin/bash
 
-dnf install mysqld -y
+dnf install mysql -y
