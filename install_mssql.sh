@@ -21,6 +21,15 @@ if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
 then
     echo " pakage not installed in this system, we are processding to install "
     dnf install mysql -y
+
+    if [ $? -eq 0 ];
+    then
+        echo " package installed successfully"
+    else 
+        echo " package installation failed , please try after sometime "
+    
+    fi
+
 else 
     echo " Package alredy installed "  #it is alredy installed
     exit 1
