@@ -20,7 +20,7 @@ dnf list installed  mysql
 if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
 then
     echo " pakage not installed in this system, we are processding to install "
-    dnf install mysql
+    dnf install mysql -y
 else 
     echo " Package alredy installed "  #it is alredy installed
     exit 1
