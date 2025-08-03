@@ -1,6 +1,8 @@
 #!/bin/bash
 
-
+VALIDATE(){
+    echo "exit status: $1 "
+}
 
 #check the user has root access or not 
 
@@ -33,29 +35,31 @@ else
     echo " git Package alredy installed "  #it is alredy installed
     
 fi
-#if not installed , install it 
-//
+
+VALIDATE $?
+# #if not installed , install it 
+# //
 
 
-//
-dnf list installed git
+# //
+# dnf list installed git
 
-if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
-then
-    echo " git pakage not installed in this system, we are processding to install "
-    dnf install git -y
-    if [ $? -eq 0 ];
-    then
-        echo " git package installed successfully"
-    else 
-        echo " git package installation failed , please try after sometime "
+# if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
+# then
+#     echo " git pakage not installed in this system, we are processding to install "
+#     dnf install git -y
+#     if [ $? -eq 0 ];
+#     then
+#         echo " git package installed successfully"
+#     else 
+#         echo " git package installation failed , please try after sometime "
     
-    fi
+#     fi
 
-else 
-    echo " git Package alredy installed "  #it is alredy installed
+# else 
+#     echo " git Package alredy installed "  #it is alredy installed
     
-fi
+# fi
 
 
 
