@@ -19,38 +19,41 @@ dnf list installed  mysql
 
 if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
 then
-    echo " pakage not installed in this system, we are processding to install "
+    echo " mysql pakage not installed in this system, we are processding to install "
     dnf install mysql -y
     if [ $? -eq 0 ];
     then
-        echo " package installed successfully"
+        echo " mysql package installed successfully"
     else 
-        echo " package installation failed , please try after sometime "
+        echo " Mysql package installation failed , please try after sometime "
     
     fi
 
 else 
-    echo " Package alredy installed "  #it is alredy installed
+    echo " git Package alredy installed "  #it is alredy installed
     
 fi
 #if not installed , install it 
+//
 
+
+//
 dnf list installed git
 
 if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
 then
-    echo " pakage not installed in this system, we are processding to install "
+    echo " git pakage not installed in this system, we are processding to install "
     dnf install git -y
     if [ $? -eq 0 ];
     then
-        echo " package installed successfully"
+        echo " git package installed successfully"
     else 
-        echo " package installation failed , please try after sometime "
+        echo " git package installation failed , please try after sometime "
     
     fi
 
 else 
-    echo " Package alredy installed "  #it is alredy installed
+    echo " git Package alredy installed "  #it is alredy installed
     
 fi
 
