@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#dnf install mysql -y
+
 
 #check the user has root access or not 
 
@@ -9,10 +9,13 @@ USERID=$(id -u )
 if [ "$USERID" -eq 0 ];
 
 then
-    echo "user is root user"
+    echo "user is root user, we are prosiding to install"
 else 
-    echo "user is not a root user"
+    echo "user is not a root user, please try with root user"
+    exit 1
 fi
+
+dnf install mysql -y
 
 #echo "user id is : $USERID"
 
