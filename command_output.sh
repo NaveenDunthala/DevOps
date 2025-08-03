@@ -1,3 +1,3 @@
 #!/bin/bash
 
-DATE=$(date+ %F)
+DATE=$"(date+ %F)"
