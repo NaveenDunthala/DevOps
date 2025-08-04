@@ -38,14 +38,14 @@ VALIDATE(){
 echo " script started excuting at: $(date) " | tee -a $LOG_FILE
 CHECK_ROOT
 
-dnf install mysql-server -y
+dnf install mysql-server -y &>>$LOG_FILE
 VALIDATE $? "Installing MYSQL Server" | tee -a $LOG_FILE
 
-systemctl enable mysqld
+systemctl enable mysqld &>>$LOG_FILE
 VALIDATE $? "Enable MYSQL Server" | tee -a $LOG_FILE
 
-systemctl start mysqld
+systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "Start MYSQL Server" | tee -a $LOG_FILE
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
 VALIDATE $? "setting up root password"| tee -a $LOG_FILE
