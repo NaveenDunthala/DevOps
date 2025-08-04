@@ -25,20 +25,20 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ];
     then
-        echo -e "$2 is...${R} Failed $N"
+        echo -e "$2 is...${R} Failed $N" &>>$LOG_FILE
     else 
-        echo -e "$2 is... ${G} Sucess $N" &>>$
+        echo -e "$2 is... ${G} Sucess $N" &>>$LOG_FILE
     fi
 }
 CHECK_ROOT
 
 for Package in $@
 do 
-    dnf list installed $Package
+    dnf list installed "$Package"
     if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
     then
         echo -e "${Y} $Package not installed in this system, we are processding to install $N" &>>$LOG_FILE
-        dnf install $Package -y
+        dnf install "$Package" -y
         VALIDATE $? "installing $Package" &>>$LOG_FILE
     else
         echo -e "${Y} $Package is already installed...nothing to do $N" &>>$LOG_FILE
