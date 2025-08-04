@@ -28,5 +28,10 @@ CHECK_ROOT
 for Package in $@
 do 
     dnf list installed $package
-    echo { $package alredy installed}
+    if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
+    then
+        echo -e "${Y} $package not installed in this system, we are processding to install "
+        dnf install $package -y
+        VALIDATE $?
+    fi
 done
