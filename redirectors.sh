@@ -14,7 +14,7 @@ N="\e[0m"
 USERID=$(id -u )
 
 USAGE=(){
-    echo -e "${R} USAGE$N:: sudo sh ($SCRIPT_NAME) pakage1 pakage2 pakage3" &>>$LOG_FILE
+    echo -e "${R} USAGE$N:: sudo sh ($SCRIPT_NAME) pakage1 pakage2 pakage3 " &>>$LOG_FILE
 }
 
 CHECK_ROOT(){
