@@ -1,6 +1,6 @@
 # #!/bin/bash
 
-for i in { 1..50}
+for i in {1..50}
 do 
     echo " Number $i "
 done
