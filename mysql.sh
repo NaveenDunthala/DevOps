@@ -38,19 +38,14 @@ VALIDATE(){
 echo " script started excuting at: $(date) " | tee -a $LOG_FILE
 CHECK_ROOT
 
-dnf list installed  mysql | tee -a $LOG_FILE
+dnf install mysql-server -y
+VALIDATE $? "Installing MYSQL Server" | tee -a $LOG_FILE
 
-if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
-then
-    echo -e "${R} mysql pakage not installed in this system, we are processding to install $N" | tee -a $LOG_FILE
+systemctl enable mysqld
+VALIDATE $? "Enable MYSQL Server" | tee -a $LOG_FILE
 
-    dnf install mysql -y | tee -a $LOG_FILE
-    if [ $? -eq 0 ]; 
-    then
-       VALIDATE $? | tee -a $LOG_FILE
-    fi
+systemctl start mysqld
+VALIDATE $? "Start MYSQL Server" | tee -a $LOG_FILE
 
-else 
-    echo -e "${Y} mysql Package alredy installed $N" | tee -a $LOG_FILE #it is alredy installed
-    
-fi
+mysql_secure_installation --set-root-pass ExpenseApp@1
+VALIDATE $? "setting up root password"| tee -a $LOG_FILE
