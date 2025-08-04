@@ -42,7 +42,7 @@ dnf list installed  mysql | tee -a $LOG_FILE
 
 if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
 then
-    echo " mysql pakage not installed in this system, we are processding to install " | tee -a $LOG_FILE
+    echo "${R} mysql pakage not installed in this system, we are processding to install $N" | tee -a $LOG_FILE
 
     dnf install mysql -y | tee -a $LOG_FILE
     if [ $? -eq 0 ]; 
@@ -51,8 +51,6 @@ then
     fi
 
 else 
-    echo "mysql Package alredy installed " | tee -a $LOG_FILE #it is alredy installed
+    echo "${Y}mysql Package alredy installed $N " | tee -a $LOG_FILE #it is alredy installed
     
 fi
-
-VALIDATE $? | tee -a $LOG_FILE
