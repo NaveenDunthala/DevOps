@@ -5,9 +5,10 @@ USERID=$(id -u )
 CHECK_ROOT(){
     if [ "$USERID" -eq 0 ];
     then
-    echo "user is root user, we are prosiding to install" #if root access , processd with the script
+        echo "user is root user, we are prosiding to install" #if root access , processd with the script
     else 
-    echo "user is not a root user, please try with root user"
+        echo "user is not a root user, please try with root user"
+        exit 1
     fi  
 }   
 VALIDATE(){
@@ -18,7 +19,7 @@ VALIDATE(){
         echo " MYSQL Installed suessfully"
     fi
 }
-
+CHECK_ROOT
 dnf list installed  mysql 
 
 if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
