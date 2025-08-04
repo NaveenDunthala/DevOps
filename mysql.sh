@@ -51,6 +51,6 @@ then
     fi
 
 else 
-    echo "${Y}mysql Package alredy installed $N " | tee -a $LOG_FILE #it is alredy installed
+    echo "${Y} mysql Package alredy installed $N" | tee -a $LOG_FILE #it is alredy installed
     
 fi
