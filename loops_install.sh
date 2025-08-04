@@ -27,13 +27,13 @@ CHECK_ROOT
 
 for Package in $@
 do 
-    dnf list installed $package
+    dnf list installed $Package
     if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
     then
-        echo -e "${Y} $package not installed in this system, we are processding to install "
-        dnf install $package -y
-        VALIDATE $? "installing $package"
+        echo -e "${Y} $Package not installed in this system, we are processding to install "
+        dnf install $Package -y
+        VALIDATE $? "installing $Package"
     else
-        echo"$package is already installed...nothing to do"
+        echo -e "${Y} $Package is already installed...nothing to do"
     fi
 done
