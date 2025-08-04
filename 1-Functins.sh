@@ -2,7 +2,7 @@
 
 USERID=$(id -u )
 
-CHECK ROOT(){
+CHECK_ROOT(){
     if [ "$USERID" -eq 0 ];
     then
     echo "user is root user, we are prosiding to install" #if root access , processd with the script
