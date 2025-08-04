@@ -13,7 +13,7 @@ N="\e[0m"
 
 USERID=$(id -u )
 
-USAGE=(){
+USAGE() {
     echo -e "${R} USAGE$N:: sudo sh ($SCRIPT_NAME) pakage1 pakage2 pakage3 " &>>$LOG_FILE
 }
 
@@ -36,7 +36,7 @@ VALIDATE(){
 }
 CHECK_ROOT
 
-if [ $# -eq 0];
+if [ $# -eq 0 ];
 then
     USAGE
 fi
