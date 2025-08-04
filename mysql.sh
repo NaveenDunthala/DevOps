@@ -35,5 +35,5 @@ VALIDATE(){
     fi
 }
 
-echo " script starting at:$date"
+echo " script starting at:$TIME_STAMP "
 CHECK_ROOT
