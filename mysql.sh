@@ -37,3 +37,21 @@ VALIDATE(){
 
 echo " script started excuting at: $(date) " | tee -a $LOG_FILE
 CHECK_ROOT
+
+dnf list installed  mysql 
+
+if [ $? -ne 0 ];  #check alredy installed or not , if installed tell the user
+then
+    echo " mysql pakage not installed in this system, we are processding to install "
+    dnf install mysql -y
+    if [ $? -eq 0 ];
+    then
+       VALIDATE $?
+    fi
+
+else 
+    echo "mysql Package alredy installed "  #it is alredy installed
+    
+fi
+
+VALIDATE $?
