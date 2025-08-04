@@ -12,6 +12,9 @@ Y="\e[33m"
 N="\e[0m"
 
 USERID=$(id -u )
+USAGE=(){
+    echo -e "${R} USAGE $N :: sudo sh $SCRIPT_NAME pakage1 pakage2 pakage3"
+}
 
 CHECK_ROOT(){
     if [ "$USERID" -eq 0 ];
@@ -31,6 +34,11 @@ VALIDATE(){
     fi
 }
 CHECK_ROOT
+
+if [ $# -eq 0];
+then
+    USAGE
+fi
 
 for Package in $@
 do 
