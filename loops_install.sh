@@ -18,9 +18,9 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ];
     then
-        echo -e "${R} MySql Not Installed , Please Check "
+        echo -e "$2 is...${R} Failed "
     else 
-        echo -e "${G} MYSQL Installed suessfully"
+        echo -e "$2 is... ${G} Sucess"
     fi
 }
 CHECK_ROOT
@@ -32,6 +32,8 @@ do
     then
         echo -e "${Y} $package not installed in this system, we are processding to install "
         dnf install $package -y
-        VALIDATE $?
+        VALIDATE $? "installing $package"
+    else
+        echo"$package is already installed...nothing to do"
     fi
 done
