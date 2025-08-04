@@ -35,5 +35,5 @@ VALIDATE(){
     fi
 }
 
-echo " script starting at:$TIME_STAMP "
+echo " script started excuting at: $(date) " | tee -a $LOG_FILE
 CHECK_ROOT
