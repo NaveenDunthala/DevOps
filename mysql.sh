@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGS_FOLDER="/var/log/shell_script"
+LOGS_FOLDER="/var/log/Mysql"
 SCRIPT_NAME=$(echo "$0" | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
@@ -52,7 +52,7 @@ mysql -h mysql.naveen9847.store -u root -pExpenseApp@1 -e 'show databases;' &>>$
 if [ $? -ne 0 ];
 then 
     echo "password not yet set,setting up root password" &>>$LOG_FILE
-    
+
     mysql_secure_installation --set-root-pass ExpenseApp@1
 
     VALIDATE $? "setting up root password" | tee -a $LOG_FILE
