@@ -1,5 +1,15 @@
 #!/bin/bash
 
+USERID=$(id -u )
+
+CHECK ROOT(){
+    if [ "$USERID" -eq 0 ];
+    then
+    echo "user is root user, we are prosiding to install" #if root access , processd with the script
+    else 
+    echo "user is not a root user, please try with root user"
+    fi  
+}   
 VALIDATE(){
     if [ $1 -ne 0 ];
     then
@@ -8,19 +18,6 @@ VALIDATE(){
         echo " MYSQL Installed suessfully"
     fi
 }
-
-#check the user has root access or not 
-
-USERID=$(id -u )
-
-if [ "$USERID" -eq 0 ];
-
-then
-    echo "user is root user, we are prosiding to install" #if root access , processd with the script
-else 
-    echo "user is not a root user, please try with root user"
-    
-fi
 
 dnf list installed  mysql 
 
@@ -34,5 +31,3 @@ else
     echo " git Package alredy installed "  #it is alredy installed
     
 fi
-
-VALIDATE $?
