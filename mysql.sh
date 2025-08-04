@@ -47,12 +47,16 @@ VALIDATE $? "Enable MYSQL Server" | tee -a $LOG_FILE
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "Start MYSQL Server" | tee -a $LOG_FILE
 
-mysql -h 172.31.42.23 -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+mysql -h mysql.naveen9847.store -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+
 if [ $? -ne 0 ];
 then 
-    echo "password not yet set,setting up root password"| tee -a $LOG_FILE
+    echo "password not yet set,setting up root password" &>>$LOG_FILE
+    
     mysql_secure_installation --set-root-pass ExpenseApp@1
 
     VALIDATE $? "setting up root password" | tee -a $LOG_FILE
+else
+   echo "already root password has setting up " | tee -a $LOG_FILE
 fi
 
