@@ -50,11 +50,11 @@ VALIDATE $? "Installing Nodejs Server" | tee -a $LOG_FILE
 id expense &>>$LOG_FILE
 if [ $? -ne 0 ];
 then 
-    echo " expense user not exist, ${G} Creating $N " &>>$LOG_FILE
+    echo -e " expense user not exist, ${G} Creating $N " &>>$LOG_FILE
 
     useradd expense &>>$LOG_FILE
 
     VALIDATE $? " Creating expanse user " | tee -a $LOG_FILE
 else
-   echo " expense user alredy exits..$Y  " | tee -a $LOG_FILE
+   echo -e " expense user alredy exits..$Y  " | tee -a $LOG_FILE
 fi
