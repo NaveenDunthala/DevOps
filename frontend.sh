@@ -39,10 +39,13 @@ echo " script started excuting at: $(date) " | tee -a $LOG_FILE
 CHECK_ROOT
 
 dnf install nginx -y
-VALIDATE $? "Installing ngnix " | tee -a $LOG_FILE
+VALIDATE $? "Installing ngnix " &>>$LOG_FILE
 
 
 systemctl enable nginx
+VALIDATE $? "Enabling ngnix" | tee -a $LOG_FILE
+
+systemctl start nginx
 VALIDATE $? "Enabling ngnix" | tee -a $LOG_FILE
 
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
