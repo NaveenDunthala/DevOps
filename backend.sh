@@ -50,7 +50,7 @@ VALIDATE $? "Installing Nodejs Server" | tee -a $LOG_FILE
 id expense &>>$LOG_FILE
 if [ $? -ne 0 ];
 then 
-    echo -e " expense user not exist, ${G} Creating $N " &>>$LOG_FILE
+    echo -e " expense user not exist, ${R} Creating $N " &>>$LOG_FILE
 
     useradd expense &>>$LOG_FILE
 
@@ -69,3 +69,7 @@ cd /app
 rm -rf /app/* # erase everything in /app
 unzip /tmp/backend.zip &>>$LOG_FILE
 VALIDATE $? "Extracting backend application code"
+
+npm install &>>$LOG_FILE
+
+cp /home/ec2-user/devops-notes/DevOps/Backend.service /etc/systemd/system/backend.service
