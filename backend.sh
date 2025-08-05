@@ -73,3 +73,18 @@ VALIDATE $? "Extracting backend application code"
 npm install &>>$LOG_FILE
 
 cp /home/ec2-user/devops-notes/DevOps/Backend.service /etc/systemd/system/backend.service
+
+dnf install mysql -y
+
+mysql -h mysql.naveen9847.store -uroot -pExpenseApp@1 < /app/schema/backend.sql
+VALIDATE $? "Extracting backend application code"
+
+
+systemctl daemon-reload &>>$LOG_FILE
+VALIDATE $? " Reloding daemon/backend "
+
+systemctl enable backend &>>$LOG_FILE
+VALIDATE $? "enabling backend" 
+
+systemctl restart backend &>>$LOG_FILE
+VALIDATE $? " restarting backend sevice" 
