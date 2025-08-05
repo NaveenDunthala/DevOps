@@ -58,3 +58,14 @@ then
 else
    echo -e " expense user alredy exits..$Y  " | tee -a $LOG_FILE
 fi
+
+mkdir -p /app
+VALIDATE $? " Creating Backend folder " | tee -a $LOG_FILE
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
+VALIDATE $? "Downloding backend application code"
+
+cd /app
+rm -rf /app/* # erase everything in /app
+unzip /tmp/backend.zip &>>$LOG_FILE
+VALIDATE $? "Extracting backend application code"
