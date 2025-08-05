@@ -59,9 +59,5 @@ unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE $? "Extracting application code"
 
 
-
-cp /home/ec2-user/devops-notes/DevOps/expense.conf /etc/nginx/default.d/expense.conf
-
-
 systemctl restart nginx &>>$LOG_FILE
 VALIDATE $? " restarting ngnix sevice" 
