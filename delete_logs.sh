@@ -6,20 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-USERID=$(id -u )
 
-
-CHECK_ROOT(){
-    if [ "$USERID" -eq 0 ];
-    then
-        echo -e "${G} user is root user, we are starting to delete logs older than 14days $N" 
-    else 
-        echo -e "${R} user is not a root user, please try with root user $N" 
-        exit 1
-    fi  
-}   
-
-CHECK_ROOT
 
 if [ -d $Source_Dir ]
 then 
