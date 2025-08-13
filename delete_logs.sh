@@ -12,7 +12,7 @@ USERID=$(id -u )
 CHECK_ROOT(){
     if [ "$USERID" -eq 0 ];
     then
-        echo -e "${G} user is root user, we are prosiding to install $N" 
+        echo -e "${G} user is root user, we are starting to delete logs older than 14days $N" 
     else 
         echo -e "${R} user is not a root user, please try with root user $N" 
         exit 1
@@ -28,11 +28,11 @@ else
     echo " $Source_Dir $R does not exist $N "
 fi
 
-Files=$(find $Source_Dir -name "*.log" -mtime -14)
-echo -e "files: $Files"
+FILES=$(find $Source_Dir -name "*.log" -mtime +14)
+echo -e "files: $FILES"
 
 while IFS= read -r line
 do
     echo -e " $G Deleteing line:$N $line"
     rm -rf $line
-done <<< $Files
+done <<< $FILES
