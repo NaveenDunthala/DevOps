@@ -18,6 +18,6 @@ echo -e "files: $Files"
 
 while IFS= read -r line
 do
- echo -e " $G Deleteing line:$N $line"
-
+    echo -e " $G Deleteing line:$N $line"
+    rm -rf $line
 done <<< $Files
