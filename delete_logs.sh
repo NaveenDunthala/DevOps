@@ -12,3 +12,7 @@ then
 else
     echo " $Source_Dir $R does not exist $N "
 fi
+
+Files=$(find $Source_Dir -name "*.log" -mtime -14)
+echo -e "files: $Files"
+ 
